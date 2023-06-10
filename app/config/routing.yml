@@ -1,0 +1,27 @@
+document_document:
+    resource: "@DocumentBundle/Controller/DocumentController.php"
+    type:     annotation
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+recherche:
+    resource: RechercheBundle\Controller\RechercheController
+    type:     rest
+
+
+document:
+    resource: "@DocumentBundle/Controller/"
+    type:     rest
+
+
+candidat:
+    type:     rest
+    resource: CandidatBundle\Controller\CandidatController
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+

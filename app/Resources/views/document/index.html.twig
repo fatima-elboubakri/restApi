@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Documents list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomdocument</th>
+                <th>Nomdest</th>
+                <th>Datedoc</th>
+                <th>Objetdoc</th>
+                <th>Contenudoc</th>
+                <th>Orandoc</th>
+                <th>Logodoc</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for document in documents %}
+            <tr>
+                <td><a href="{{ path('document_show', { 'id': document.id }) }}">{{ document.id }}</a></td>
+                <td>{{ document.nomDocument }}</td>
+                <td>{{ document.nomDest }}</td>
+                <td>{% if document.dateDoc %}{{ document.dateDoc|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ document.objetDoc }}</td>
+                <td>{{ document.contenuDoc }}</td>
+                <td>{{ document.oranDoc }}</td>
+                <td>{{ document.logoDoc }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('document_show', { 'id': document.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('document_edit', { 'id': document.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('document_new') }}">Create a new document</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Document</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ document.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomdocument</th>
+                <td>{{ document.nomDocument }}</td>
+            </tr>
+            <tr>
+                <th>Nomdest</th>
+                <td>{{ document.nomDest }}</td>
+            </tr>
+            <tr>
+                <th>Datedoc</th>
+                <td>{% if document.dateDoc %}{{ document.dateDoc|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Objetdoc</th>
+                <td>{{ document.objetDoc }}</td>
+            </tr>
+            <tr>
+                <th>Contenudoc</th>
+                <td>{{ document.contenuDoc }}</td>
+            </tr>
+            <tr>
+                <th>Orandoc</th>
+                <td>{{ document.oranDoc }}</td>
+            </tr>
+            <tr>
+                <th>Logodoc</th>
+                <td>{{ document.logoDoc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('document_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('document_edit', { 'id': document.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
